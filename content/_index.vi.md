@@ -1,5 +1,5 @@
 ---
-title : "Session Management"
+title : "Workshop Triển Khai Ứng Dụng Golang Trên EC2"
 date :  "`r Sys.Date()`" 
 weight : 1 
 chapter : false
@@ -33,13 +33,13 @@ Trong workshop này, bạn sẽ học cách triển khai một ứng dụng Gola
 ### Nội dung
 
  1. [Giới thiệu](1-introduce/)
- 3. [Tạo IAM User hạn chế quyền truy cập]
- 4. [Khởi tạo VPC]
- 5. [Khởi tạo EC2 Instance]
- 6. [Tạo MySQL RDS lưu trữ dữ liệu]
- 7. [Tạo S3 Bucket lưu trữ hình ảnh]
- 8. [Triển khai ứng dụng lên EC2]
- 9. [Dọn dẹp tài nguyên]
+ 2. [Hạn chế quyền truy cập với IAM Service](2-restrict-access/)
+ 3. [Khởi tạo VPC](3-create-vpc-instance/)
+ 4. [Khởi tạo EC2 Instance](4-create-ec2-instance/)
+ 5. [Khởi tạo AWS Relational Database Service](5-create-rds-instance/)
+ 6. [Tạo S3 Bucket lưu trữ hình ảnh](6-create-s3-instance/)
+ 7. [Triển khai ứng dụng lên EC2](7-deploy-application-to-ec2/)
+ 8. [Dọn dẹp tài nguyên](8-clean-up/)
 
 
 
