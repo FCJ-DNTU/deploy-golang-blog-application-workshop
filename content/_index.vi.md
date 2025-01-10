@@ -4,7 +4,7 @@ date :  "`r Sys.Date()`"
 weight : 1 
 chapter : false
 ---
-# Workshop Triển Khai Ứng Dụng Golang Trên EC2 Với MySQL RDS và S3
+# Workshop: Triển Khai Ứng Dụng Golang Trên EC2 Với MySQL RDS và S3
 
 ### Tổng quan
 

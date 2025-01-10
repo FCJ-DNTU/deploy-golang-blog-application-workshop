@@ -65,7 +65,8 @@ MySQL làm ví dụ.
 - Trong trang chi tiết của instance RDS, bạn có thể tìm thấy các thông tin liên quan đến kết nối như Endpoint (điểm kết
   nối), Port (cổng), và Username (tên người dùng).
 - Điểm kết nối (Endpoint) là URL hoặc địa chỉ IP mà bạn sử dụng để kết nối tới cơ sở dữ liệu RDS.
-  ![rds.png](/images/5-create-rds-instance/rds.png)
+  
+![rds.png](/images/5-create-rds-instance/rds.png)
 
 15. Kiểm tra kết nối từ EC2 tới MySQL
 

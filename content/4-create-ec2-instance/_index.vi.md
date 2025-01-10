@@ -52,6 +52,7 @@ Cảnh báo: Đừng chọn Proceed without a key pair (Không được khuyến
   - Xác nhận và khởi động instance
   - Giữ nguyên các lựa chọn mặc định cho các cài đặt khác của instance của bạn.
   - Xem lại bản tóm tắt về cấu hình instance của bạn trong Summary panel, và khi bạn đã sẵn sàng, chọn Launch instance.
+
 ![sg-config.png](/images/4-create-ec2-instance/sg-config.png)
 
 #### 8. Xác nhận và kiểm tra
@@ -67,7 +68,9 @@ Cảnh báo: Đừng chọn Proceed without a key pair (Không được khuyến
 #### 1. Kết nối EC2 Instance bằng SSH
 - Chọn EC2 Instance vừa khởi tạo, chọn **Connect**
 - Tại giao diện **Connect to instance**, chọn tab **SSH Client** 
+
 ![ssh-ec2.png](/images/4-create-ec2-instance/ssh-ec2.png)
+
 - Nếu bạn đang sử dụng Windows, hãy cài đặt [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) để thực hiện các câu lệnh Linux (hoặc có thể sử dụng ứng dụng [Putty](https://www.putty.org/))
 - Nếu bạn đang sử dụng MacOS, copy example ssh command line và paste vào **Terminal**, câu lệnh có cú pháp:
 
@@ -77,6 +80,7 @@ $ ssh -i path/to/key-pair.pem ec2-user@domain
 ```
 
 #### 2. Truy cập thành công 
+
 ![complete.png](/images/4-create-ec2-instance/complete.png)
 
 

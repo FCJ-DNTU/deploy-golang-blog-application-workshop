@@ -89,7 +89,7 @@ chúng ta sẽ tạo policy để hạn chế user chỉ có thể tương tác 
 
 4.6. Tại **bước 4 - Retrieve password**
 - Lưu trữ hoặc tải xuống bản **.csv** để quản lý user
-![retrieve-pwd](/images/2-restrict-access/retrieve-pwd.png)
+![review-pwd](/images/2-restrict-access/review-pwd.png)
 
 4.7. Đăng nhập vào tài khoản IAM User
 - Copy **sign-in URL**
