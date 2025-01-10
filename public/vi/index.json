@@ -1,97 +1,97 @@
 [
 {
-	"uri": "/vi/1-introduce/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/1-introduce/",
 	"title": "Giới thiệu",
 	"tags": [],
 	"description": "",
 	"content": "Trong workshop này, bạn sẽ học cách triển khai một ứng dụng Golang lên AWS EC2, sử dụng MySQL RDS làm cơ sở dữ liệu và S3 làm lưu trữ đối tượng. Các bước hướng dẫn sẽ giúp bạn xây dựng một môi trường AWS hoàn chỉnh, bao gồm việc thiết lập IAM, VPC, EC2, RDS và S3, cũng như kiểm tra và triển khai ứng dụng của bạn.\nMục tiêu:   Hiểu cách tạo và cấu hình các dịch vụ AWS cơ bản.\n  Kết nối và sử dụng MySQL RDS từ EC2.\n  Tích hợp lưu trữ S3 vào ứng dụng Golang.\n  Triển khai và chạy ứng dụng Golang trên môi trường AWS.\n  Yêu cầu:   Tài khoản AWS với quyền truy cập IAM.\n  Kiến thức cơ bản về Golang và Linux command line.\n  Một máy tính với SSH client (như Terminal hoặc PuTTY).\n  "
 },
 {
-	"uri": "/vi/3-create-vpc-instance/3.1-create-vpc/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/3-create-vpc-instance/3.1-create-vpc/",
 	"title": "Khởi tạo VPC Instance",
 	"tags": [],
 	"description": "",
 	"content": "Khởi tạo VPC Instance Ở section này chúng ta sẽ khởi tạo VPC Instance, bao gồm 2 AZ, 2 Public Subnets, 2 Private Subnets\n1. Tạo VPC Instance  Truy cập Your VPCs, Create VPC Tại VPC Settings, chọn option VPC and more   Đặt tên name tag và để mặc định các field khác, chọn Create VPC  Kết quả tạo VPC Instance thành công   2. Tiếp theo chúng ta sẽ gán Public IP4 cho các public subnet  Truy cập Subnets Chọn Subnet ID của public subnet e.g. deploy-golang-workshop-subnet-public1-ap-southeast-1a  Chọn dropdown Actions, Edit subnet settings  Tích vào Enable auto-assign public IPv4 address, Save  Hoàn thành gán Public IPv4 cho một public subnet deploy-golang-workshop-subnet-public1-ap-southeast-1a   "
 },
 {
-	"uri": "/vi/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/",
 	"title": "Workshop Triển Khai Ứng Dụng Golang Trên EC2",
 	"tags": [],
 	"description": "",
 	"content": "Workshop: Triển Khai Ứng Dụng Golang Trên EC2 Với MySQL RDS và S3 Tổng quan Trong workshop này, bạn sẽ học cách triển khai một ứng dụng Golang lên AWS EC2, sử dụng MySQL RDS làm cơ sở dữ liệu và S3 làm lưu trữ đối tượng.\nMục tiêu:   Hiểu cách tạo và cấu hình các dịch vụ AWS cơ bản.\n  Kết nối và sử dụng MySQL RDS từ EC2.\n  Tích hợp lưu trữ S3 vào ứng dụng Golang.\n  Triển khai và chạy ứng dụng Golang trên môi trường AWS.\n  Yêu cầu:   Tài khoản AWS với quyền truy cập IAM.\n  Kiến thức cơ bản về Golang và Linux command line.\n  Một máy tính với SSH client (như Terminal hoặc PuTTY).\n  Nội dung  Giới thiệu Hạn chế quyền truy cập với IAM Service Khởi tạo VPC Khởi tạo EC2 Instance Khởi tạo AWS Relational Database Service Tạo S3 Bucket lưu trữ hình ảnh Triển khai ứng dụng lên EC2 Dọn dẹp tài nguyên  "
 },
 {
-	"uri": "/vi/2-restrict-access/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/2-restrict-access/",
 	"title": "Hạn chế quyền truy cập với IAM Service",
 	"tags": [],
 	"description": "",
 	"content": "\rBest practice, hạn chế sử dụng Root User. Thay vào đó hãy tạo IAM User vừa đủ quyền hạn truy cập tài nguyên để dễ dàng quản lý và tránh những rủi ro về bảo mật.\n\rỞ section này, chúng ta sẽ tạo policy để hạn chế user chỉ có thể tương tác được với EC2 Instance trên region ap-southeast-1\n1. Truy cập AWS IAM Management Console 2. Tạo Custom Policies 2.1. Tại thanh điều hướng bên trái, chọn Policies\n2.2. Tại giao diện Policies, chọn Create policy\n2.3. Bước 1 - Specify permissions, chọn JSON tab và dán JSON bên dưới vào Policy Editor và Next\n{ \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;VisualEditor0\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Action\u0026#34;: \u0026#34;ec2:*\u0026#34;, \u0026#34;Resource\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;Condition\u0026#34;: { \u0026#34;StringEquals\u0026#34;: { \u0026#34;aws:RequestedRegion\u0026#34;: \u0026#34;ap-southeast-1\u0026#34; } } } ] } \rĐoạn mã JSON này cho phép tương tác với tài nguyên EC2 nhưng chỉ trong region ap-southeast-1\n\r2.4. Bước 2 - Review and create\n Đặt tên policy tại Policy name, Description. Sau đó chọn create policy   3. Tạo một User Group và Policy \rĐể policy bên trên có thể tái sử dụng, chúng ta có thể gán vào IAM Group. Những IAM User trong mộtGroup đều có quyền hạn như nhau\n\r3.1. Truy cập User groups bên thanh điều hướng bên trái\n3.2. Trong giao diện User groups, chọn Create group\n3.3. Trong giao diện Create user group\n Đặt tên User group name và gán custom policy vừa tạo. Chọn Create user group   4. Tạo User và gán vào User Group 4.1. Truy cập Users bên thanh điều hướng bên trái\n4.2. Chọn Create user\n4.3. Tại bước 1 - Specify user details\n Đặt username Chọn Provide user access to the AWS Management Console Chọn I want to create an IAM user Đặt custom password Chọn Next   4.4. Tại bước 2 - Set permissions\n Chọn Add user to group Chọn group chúng ta vừa tạo e.g. restricted_ec2_region_group Chọn Next   4.5. Tại bước 3 - Review and Create\n Kiểm tra thông tin user và permission Chọn Create user   4.6. Tại bước 4 - Retrieve password\n Lưu trữ hoặc tải xuống bản .csv để quản lý user   4.7. Đăng nhập vào tài khoản IAM User\n Copy sign-in URL Đăng nhập bằng username và password Thao tác thay đổi Password  Kiểm tra dịch vụ EC2 trên region us-east-1 =\u0026gt; Policy đã hạn chế quyền sử dụng EC2 tại region này  Kiểm tra dịch vụ EC2 trên region ap-southeast-1  Hoàn thành!  "
 },
 {
-	"uri": "/vi/3-create-vpc-instance/3.2-createvpcsg/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/3-create-vpc-instance/3.2-createvpcsg/",
 	"title": "Khởi tạo Security Group",
 	"tags": [],
 	"description": "",
 	"content": "Khởi tạo VPC Security Group Tiếp theo, chúng ta sẽ khởi tạo 2 SGs đại diện cho public subnets (EC2 instance) và private subnets (RDS instance)\nTruy cập vào VPC Service. Tại thanh điều huướng bên trái, chọn Security Group. Chọn create security group Tạo 2 Security Group\n   Subnet Name Direction Protocol Port Range Source/Destination     public-sg Inbound SSH (TCP) 22 My IP Address   public-sg Inbound ICMP All 0.0.0.0/0   public-sg Inbound TCP All 0.0.0.0/0   public-sg Inbound HTTP All 0.0.0.0/0   public-sg Inbound HTTPS All 0.0.0.0/0   public-sg Outbound All All 0.0.0.0/0   private-sg Inbound MySQL (TCP) 3306 0.0.0.0/0   private-sg Outbound All All 0.0.0.0/0    2.1. Khởi tạo Public SG  Trong interface Create Security Group, thêm Basic Details cho private-sg Thêm Inbound Rules tương ứng cho public-sg Allows all outbound traffic Chọn Create security group   2.2 Khởi tạo Private SG  Trong interface Create Security Group, thêm Basic Details cho private-sg Thêm Inbound Rules tuong ứng cho private-sg Allows all outbound traffic Chọn Create security group   "
 },
 {
-	"uri": "/vi/3-create-vpc-instance/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/3-create-vpc-instance/",
 	"title": "Chuẩn bị VPC Instance",
 	"tags": [],
 	"description": "",
 	"content": "Ở section này, chúng ta sẽ tao VPC Instance, đồng thời tạo VPC Security Group, RDS Security Group và Database Subnet Group.\n"
 },
 {
-	"uri": "/vi/3-create-vpc-instance/3.3-createdbsg/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/3-create-vpc-instance/3.3-createdbsg/",
 	"title": "Tạo Database Subnet Group",
 	"tags": [],
 	"description": "",
 	"content": "Tạo DB Subnet Group trên AWS Để tạo DB Subnet Group trên AWS, làm theo các bước sau:\n  Truy cập vào AWS Management Console.\n  Tìm và chọn dịch vụ Amazon RDS.\n  Trong menu điều hướng, chọn Subnet groups.\n  Chọn Create DB Subnet Group.\n  Trong giao diện Create DB Subnet Group:\n  Đặt tên cho subnet group của bạn trong trường Name.\n  Nhập mô tả cho subnet group của bạn trong trường Description.\n  Chọn Virtual Private Cloud (VPC) mặc định hoặc VPC bạn đã tạo.\n    Trong phần Add subnets, chọn các Availability Zones (AZ) chứa các subnets trong mục Availability Zones, sau đó chọn các subnets trong mục Subnets.\n  Nếu bạn đã bật Local Zone, bạn có thể chọn một nhóm Availability Zone trên trang Create DB Subnet Group. Trong trường hợp này, hãy chọn nhóm Availability Zone, các Availability Zones và Subnets tương ứng. Sau khi hoàn thành, DB Subnet Group mới của bạn sẽ xuất hiện trong danh sách các DB Subnet Group trên giao diện RDS console. Bạn có thể chọn DB Subnet Group để xem chi tiết, bao gồm danh sách các subnets được kết nối với nhóm này, trong phần chi tiết ở dưới cùng của cửa sổ.\n\rNhấn nút Create để hoàn thành quá trình tạo DB Subnet Group.  "
 },
 {
-	"uri": "/vi/4-create-ec2-instance/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/4-create-ec2-instance/",
 	"title": "Khởi tạo EC2 Instance",
 	"tags": [],
 	"description": "",
 	"content": "Tạo một EC2 Instance trên AWS Bạn có thể tạo một instance Linux bằng cách sử dụng AWS Management Console theo hướng dẫn sau đây. Hướng dẫn này được thiết kế để giúp bạn tạo instance đầu tiên một cách nhanh chóng, nên nó không bao gồm tất cả các tùy chọn có thể có. Để biết thông tin về các tùy chọn nâng cao, hãy xem Hướng dẫn tạo instance bằng cách sử dụng hướng dẫn mới về Launch Instance. Để biết thông tin về cách khác để tạo instance của bạn, hãy xem Hướng dẫn tạo instance của bạn.\n1. Truy cập AWS Console  Mở trình duyệt và truy cập vào Amazon EC2 console tại https://console.aws.amazon.com/ec2/.  2. Chọn Launch instance  Tại màn hình dashboard của EC2 console, trong hộp Launch instance, chọn Launch instance, sau đó chọn Launch instance từ các tùy chọn xuất hiện.  3. Đặt tên cho instance  Dưới phần Name and tags, cho Name, nhập tên mô tả cho instance của bạn.  4. Chọn image (Amazon Machine Image - AMI)  Dưới phần Application and OS Images (Amazon Machine Image), làm theo các bước sau đây: Chọn Quick Start, sau đó chọn Amazon Linux. Đây là hệ điều hành (OS) cho instance của bạn. Từ Amazon Machine Image (AMI), chọn một phiên bản HVM của Amazon Linux 2023. Lưu ý rằng các AMI này được đánh dấu là Free tier eligible. Một Amazon Machine Image (AMI) là một cấu hình cơ bản dùng làm mẫu cho instance của bạn.   5. Chọn loại instance  Dưới phần Instance type, từ danh sách Instance type, bạn có thể chọn cấu hình phần cứng cho instance của bạn. Chọn loại instance t2.micro, mà mặc định đã được chọn. Loại instance t2.micro đủ điều kiện để sử dụng miễn phí trong AWS Free Tier. Tại các khu vực mà loại t2.micro không có sẵn, bạn có thể sử dụng loại t3.micro trong AWS Free Tier. Để biết thêm thông tin, hãy xem AWS Free Tier.  6. Chọn Key Pair  Dưới phần Key pair (login), cho Key pair name, chọn key pair mà bạn đã tạo khi cài đặt.  Cảnh báo: Đừng chọn Proceed without a key pair (Không được khuyến nghị). Nếu bạn tạo instance mà không có key pair, bạn sẽ không thể kết nối vào nó.\n\r7. Cấu hình Security Group   Bên cạnh Network settings, chọn Edit. Đối với Security group name, bạn sẽ thấy rằng hướng dẫn đã tạo và chọn một security group cho bạn. Bạn chọn security group mà bạn đã tạo khi cài đặt bằng các bước sau đây:\n  Chọn Select existing security group.\n Từ Common security groups, chọn security group của bạn từ danh sách các security group hiện có. Xác nhận và khởi động instance Giữ nguyên các lựa chọn mặc định cho các cài đặt khác của instance của bạn. Xem lại bản tóm tắt về cấu hình instance của bạn trong Summary panel, và khi bạn đã sẵn sàng, chọn Launch instance.    8. Xác nhận và kiểm tra  Một trang xác nhận sẽ thông báo rằng instance của bạn đang được khởi động. Chọn View all instances để đóng trang xác nhận và trở lại giao diện console. Trên màn hình Instances, bạn có thể xem trạng thái của quá trình khởi động. Có một thời gian ngắn để instance được khởi động. Khi bạn khởi động instance, trạng thái ban đầu của nó là pending. Sau khi instance khởi động, trạng thái của nó sẽ thay đổi thành running và nó sẽ nhận được một tên DNS công cộng. Nếu cột Public IPv4 DNS bị ẩn, hãy chọn biểu tượng cài đặt (Biểu tượng cài đặt) ở góc trên bên phải, bật Public IPv4 DNS và chọn Confirm. Có thể mất vài phút để instance sẵn sàng để bạn kết nối vào. Hãy kiểm tra xem instance của bạn đã vượt qua kiểm tra trạng thái; bạn có thể xem thông tin này trong cột Status check.  Kiểm tra kết nối tới EC2 Instance 1. Kết nối EC2 Instance bằng SSH  Chọn EC2 Instance vừa khởi tạo, chọn Connect Tại giao diện Connect to instance, chọn tab SSH Client   Nếu bạn đang sử dụng Windows, hãy cài đặt WSL2 để thực hiện các câu lệnh Linux (hoặc có thể sử dụng ứng dụng Putty) Nếu bạn đang sử dụng MacOS, copy example ssh command line và paste vào Terminal, câu lệnh có cú pháp:  $ chmod 400 \u0026quot;key-pair.pem\u0026quot; $ ssh -i path/to/key-pair.pem ec2-user@domain 2. Truy cập thành công "
 },
 {
-	"uri": "/vi/5-create-rds-instance/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/5-create-rds-instance/",
 	"title": "Khởi tạo AWS Relational Database Service",
 	"tags": [],
 	"description": "",
 	"content": "Tạo một DB Instance trên AWS Lưu ý: Trong thủ tục dưới đây, tùy chọn Standard create được bật và Easy create không được bật. Thủ tục này sử dụng MySQL làm ví dụ.\n\rĐể tạo một DB Instance:   Đăng nhập vào AWS Management Console và mở Amazon RDS console tại https://console.aws.amazon.com/rds/.\n  Ở góc trên bên phải của Amazon RDS console, chọn khu vực AWS mà bạn muốn tạo DB Instance.\n  Trong khung điều hướng, chọn Databases.\n  Chọn Create database, sau đó chọn Standard create.\n  Đối với Engine type, chọn MariaDB, Microsoft SQL Server, MySQL, Oracle, hoặc PostgreSQL. Trong ví dụ này, chúng ta sử dụng MySQL.\n  Đối với Edition, chọn MySQL Community\n  Đối với Version, chọn phiên bản của engine. e.g. MySQL 8.0.39   Trong phần Templates, chọn Free tiers template:\n  Để nhập mật khẩu chính của bạn, làm theo các bước sau:\n   Trong phần Settings, mở Credential Settings. Nếu bạn muốn chỉ định một mật khẩu, hãy bỏ chọn hộp kiểm Auto generate a password nếu nó đã được chọn. (Tùy chọn) Thay đổi giá trị Master username. Nhập cùng mật khẩu trong Master password và Confirm password. (Tùy chọn) Cài đặt kết nối với một tài nguyên tính toán cho DB Instance này.  Bạn có thể cấu hình kết nối giữa một Amazon EC2 instance và DB Instance mới trong quá trình tạo DB Instance.   Trong phần Connectivity, chọn Connect to EC2 Compute Resource Chọn EC2 Instance chúng ta vừa tạo  Cấu hình DB Subnet Group   Tại phần DB Subnet Group, chọn Choose Existing chọn golang-db-subnet-group  Cấu hình VPC Security Group   Chọn Choose Existing, tại dropdown chọn private-sg, security group chúng ta vừa khởi tạo   Chọn Create database.\n  Kiểm tra RDS\n   Trong trang chi tiết của instance RDS, bạn có thể tìm thấy các thông tin liên quan đến kết nối như Endpoint (điểm kết nối), Port (cổng), và Username (tên người dùng). Điểm kết nối (Endpoint) là URL hoặc địa chỉ IP mà bạn sử dụng để kết nối tới cơ sở dữ liệu RDS.  Kiểm tra kết nối từ EC2 tới MySQL  $ sudo yum install mysql $ mysql -h \u0026lt;endpoint\u0026gt; -P 3306 -u admin -p \u0026lt;password\u0026gt; $ mysql -h mysql-golang-db.c1a20mqwgeb9.ap-southeast-1.rds.amazonaws.com -P 3306 -u admin -pAdmin123 Tạo Database Admin user không thể truy cập trực tiếp với database mysql, chúng ta nên tạo database mới để truy cập. Mình đã troubleshoot lỗi này trong một buổi, và đơn giản là do privileges bên trong RDS :D\n\r Since RDS is a managed service, to maintain the system integrity and stability, super user privileges are not provided even to the master user of the DB instance, and therefore, such error message is expected, as the RDS MySQL master user by default does not have the ADMIN, ROLE_ADMIN, SUPER privileges.\n   CREATE DATABASE blog_db; # Query OK, 1 row affected (0.01 sec) Truy cập vào Database   "
 },
 {
-	"uri": "/vi/6-create-s3-instance/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/6-create-s3-instance/",
 	"title": "Khởi tạo S3 Instance",
 	"tags": [],
 	"description": "",
 	"content": "Tiếp theo, để lưu trữ hình ảnh cho ứng dụng chúng ta sẽ sử dụng dịch vụ lưu trữ AWS S3\nKhởi tạo dịch vụ lưu trữ S3   Truy cập AWS S3\n  Chọn Create bucket\n   Chọn AWS Region - Asia Pacific (Singapore) ap-southeast-1 Đặt tên cho S3 bucket, lưu ý tên bucket phải unique Vì chúng ta muốn hình ảnh có thể serve cho client =\u0026gt; Bỏ chọn Block all public acccess, sau đó tích chọn confirm  Chọn create bucket  Truy cập S3 bucket   Khi quá trình tạo hoàn thành, truy cập và kiểm tra thông tin của S3 bucket   Upload một object vào S3 Bucket   Truy cập vào S3 bucket, chọn Upload Kéo thả một file vào khung Upload, và chọn Upload   Tạo IAM role cho EC2 Best practices. Thay vì kết nối với S3 bằng Access Key, Secret Key. Để tăng tính bảo mật, hãy sử dụng IAM Role để ủy quyền cho một EC2 Instance kết nối tới S3 Bucket\n\r   Đầu tiên, bạn cần tạo một role cho EC2 Service kết nối tới S3 bucket Truy cập Roles, tạo Create Role Tại giao diện Select trusted entity, chọn entity type là AWS Service Use case EC2. Next để tiếp tục  Tiếp theo chọn AmazonS3FullAccess, chọn Next ( Ở đây, để bảo mật hơn, bạn hoàn toàn có thể sử dụng Custom Policy)  Tiếp theo, đặt Role name, Description, và review Role Details  Gán role cho EC2 service   Truy cập EC2 instances Chọn EC2 Instance chúng ta đã khởi tạo Chọn Actions \u0026gt; Security \u0026gt; Modify IAM Role  Chọn IAM Role vừa tạo và Update IAM Role   Kiểm tra kết nối EC2 với S3   Truy cập EC2 instance $ aws s3 ls s3://my-bucket-name  "
 },
 {
-	"uri": "/vi/7-deploy-application-to-ec2/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/7-deploy-application-to-ec2/",
 	"title": "Triển khai ứng dụng lên EC2 instance",
 	"tags": [],
 	"description": "",
 	"content": "Chúng ta đã hoàn thành xây dựng Infrastructure, tiếp theo chỉ cần triển khai ứng dụng Go lên EC2 Instance là hoàn thành bài lab!!! xd\n1. Cài đặt Git version control và Golang  Cài đặt git  $ sudo yum install git -y $ git --version  Cài đặt golang   $ wget https://go.dev/dl/go1.23.4.linux-amd64.tar.gz $ sudo tar -C /usr/local -xzf go1.23.4.linux-amd64.tar.gz $ export PATH=$PATH:/usr/local/go/bin $ go version 2. Clone repository  Clone repository Blog application của mình, hoặc các bạn có thể sử dụng repository cá nhân. $ git clone https://github.com/minhnghia2k3/workshop-01.git  3. Export environment variables Thêm biến môi trường, các biến môi trường này là phần required trong application\n$ vi ~/.bashrc export DATABASE_URL=\u0026quot;admin:Admin123@tcp(\u0026lt;YOUR_DB_ENDPOINT\u0026gt;:3306)/blog_db\u0026quot; export AWS_REGION=\u0026quot;ap-southeast-1\u0026quot; export S3_BUCKET_NAME=\u0026quot;minhnghia2k3-blog-s3-bucket\u0026quot; $ source ~/.bashrc 4. Khởi chạy ứng dụng $ ls $ cd workshop-01 $ go build -o ./bin/main . $ ./bin/main  Thành quả chạy thành công, server sẽ open tại port :3000  5. Kiểm tra Deployment và chức năng  Truy cập EC2 domain e.g. http://ec2-13-250-114-245.ap-southeast-1.compute.amazonaws.com:3000/  Test chức năng tạo blog  Test chức năng chỉnh sửa blog  Test chức năng xóa blog   6. Kiểm tra lưu trữ tại Mysql và S3 bucket Tại SSH của EC2 Instance:\n1. Kiểm tra Mysql\n$ mysql -h mysql-golang-db.c1a20mqwgeb9.ap-southeast-1.rds.amazonaws.com -P 3306 -u admin -pAdmin123 $ USE blog_db; $ SELECT * FROM articles;    id title content     1 Introduction to Golang: A Beginner\u0026rsquo;s Guide Golang, or Go, is an open-source programming language designed by Google. Known for its simplicity, concurrency support, and performance, Go is an excellent choice for building scalable web applications, cloud-native solutions, and microservices.fmt.Println(\u0026quot;Hello Go!\u0026quot;)    2. Kiểm tra Bucket\n Tại folder uploads/, có thể thấy chúng ta đã lưu trữ thành công từ application về S3 bucket   "
 },
 {
-	"uri": "/vi/8-clean-up/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/8-clean-up/",
 	"title": "Dọn dẹp tài nguyên",
 	"tags": [],
 	"description": "",
 	"content": "1. Xóa tài nguyên S3  Truy cập Amazon S3 Chọn bucket instance, empty xóa hết đối tượng trong bucket Sau đó thực hiện Delete   2. Xóa tài nguyên RDS  Truy cập Amazon RDS, section Database Chọn dropdown Action, Delete   3. Xóa tài nguyên EC2  Truy cập EC2 Instance Chọn instance, dropdown Instance state, chọn Terminate   4. Xóa tài nguyên VPC  Truy cập Your VPCs Chọn Instance \u0026gt; Actions \u0026gt; Delete VPC   4. Xóa tài nguyên trong IAM Service  Truy cập vào Root user Truy cập IAM Service Chọn Policies, thực hiện chọn Policy và Delete Chọn Groups, thực hiện Delete  Chọn Users, thực hiện Delete   "
 },
 {
-	"uri": "/vi/categories/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "/vi/tags/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",

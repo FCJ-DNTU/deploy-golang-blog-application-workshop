@@ -1,97 +1,97 @@
 [
 {
-	"uri": "/3-create-vpc-instance/3.1-create-vpc/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/3-create-vpc-instance/3.1-create-vpc/",
 	"title": "Create a VPC Instance",
 	"tags": [],
 	"description": "",
 	"content": "Create a VPC Instance In this section, we will create a VPC Instance, which includes 2 Availability Zones (AZs), 2 Public Subnets and 2 Private Subnets.\n1. Create the VPC Instance  Go to Your VPCs, and select Create VPC. In the VPC Settings, choose the option VPC and more.   Add a name tag and keep the default values for other fields, then click Create VPC.  The VPC Instance is successfully created.   2. Assign Public IPv4 to Public Subnets  Go to Subnets. Select the Subnet ID of the public subnet, e.g., deploy-golang-workshop-subnet-public1-ap-southeast-1a.  From the dropdown Actions, choose Edit subnet settings.  Check the option Enable auto-assign public IPv4 address, and click Save.  Successfully assigned a Public IPv4 address to the public subnet deploy-golang-workshop-subnet-public1-ap-southeast-1a.   "
 },
 {
-	"uri": "/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/",
 	"title": "Deploying Golang Application on EC2 Workshop",
 	"tags": [],
 	"description": "",
 	"content": "Workshop: Deploying a Golang Application on EC2 with MySQL RDS and S3 Overview In this workshop, you will learn how to deploy a Golang application on AWS EC2, using MySQL RDS as the database and S3 for object storage.\nObjectives:  Understand how to create and configure basic AWS services. Connect and use MySQL RDS from EC2. Integrate S3 storage into a Golang application. Deploy and run a Golang application in an AWS environment.  Requirements:  An AWS account with IAM access. Basic knowledge of Golang and Linux command line. A computer with an SSH client (e.g., Terminal or PuTTY).  Contents  Introduction Restrict Access with IAM Service Create a VPC Set Up an EC2 Instance Create AWS Relational Database Service (RDS) Set Up an S3 Bucket for Image Storage Deploy the Application to EC2 Clean Up Resources  "
 },
 {
-	"uri": "/1-introduce/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/1-introduce/",
 	"title": "Introduction",
 	"tags": [],
 	"description": "",
 	"content": "In this workshop, you will learn how to deploy a Golang application on AWS EC2, using MySQL RDS as the database and S3 for object storage. The step-by-step guide will help you build a complete AWS environment, including setting up IAM, VPC, EC2, RDS, and S3, as well as testing and deploying your application.\nObjectives:   Understand how to create and configure basic AWS services.\n  Connect and use MySQL RDS from EC2.\n  Integrate S3 storage into a Golang application.\n  Deploy and run a Golang application on an AWS environment.\n  Requirements:   An AWS account with IAM access.\n  Basic knowledge of Golang and Linux command line.\n  A computer with an SSH client (e.g., Terminal or PuTTY).\n  "
 },
 {
-	"uri": "/3-create-vpc-instance/3.2-createvpcsg/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/3-create-vpc-instance/3.2-createvpcsg/",
 	"title": "Create Security Group",
 	"tags": [],
 	"description": "",
 	"content": "Create VPC Security Groups In this step, we will create two Security Groups (SGs): one for public subnets (used by EC2 instances) and one for private subnets (used by RDS instances).\n Go to the VPC Service. In the left-hand menu, select Security Groups. Click Create Security Group. Create the following two Security Groups:     Subnet Name Direction Protocol Port Range Source/Destination     public-sg Inbound SSH (TCP) 22 My IP Address   public-sg Inbound ICMP All 0.0.0.0/0   public-sg Inbound TCP All 0.0.0.0/0   public-sg Inbound HTTP All 0.0.0.0/0   public-sg Inbound HTTPS All 0.0.0.0/0   public-sg Outbound All All 0.0.0.0/0   private-sg Inbound MySQL (TCP) 3306 0.0.0.0/0   private-sg Outbound All All 0.0.0.0/0     2.1. Create Public SG  In the Create Security Group interface, fill out the Basic Details for public-sg. Add the Inbound Rules for public-sg as shown above. Allow all Outbound traffic. Click Create Security Group.    2.2. Create Private SG  In the Create Security Group interface, fill out the Basic Details for private-sg. Add the Inbound Rules for private-sg as shown above. Allow all Outbound traffic. Click Create Security Group.   "
 },
 {
-	"uri": "/2-restrict-access/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/2-restrict-access/",
 	"title": "Restrict Access with IAM Service",
 	"tags": [],
 	"description": "",
 	"content": "\rBest practice: Avoid using the Root User. Instead, create IAM Users with minimal permissions needed to manage resources. This makes management easier and reduces security risks.\n\rIn this section, we will create a policy to restrict a user to only interact with EC2 Instances in the ap-southeast-1 region.\n1. Access the AWS IAM Management Console 2. Create Custom Policies 2.1. On the left navigation menu, select Policies.\n2.2. In the Policies interface, click Create policy.\n2.3. Step 1 - Specify permissions:\n Go to the JSON tab, paste the following JSON into the Policy Editor, and click Next.  { \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;VisualEditor0\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Action\u0026#34;: \u0026#34;ec2:*\u0026#34;, \u0026#34;Resource\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;Condition\u0026#34;: { \u0026#34;StringEquals\u0026#34;: { \u0026#34;aws:RequestedRegion\u0026#34;: \u0026#34;ap-southeast-1\u0026#34; } } } ] } \rThis JSON allows interactions with EC2 resources but only in the ap-southeast-1 region.\n\r2.4. Step 2 - Review and Create:\n Provide a name and description for the policy. Click Create policy.\n  3. Create a User Group and Assign the Policy To reuse the above policy, assign it to an IAM Group. All IAM Users in the group will share the same permissions.\n\r3.1. Access User groups from the left navigation menu.\n3.2. In the User groups interface, click Create group.\n3.3. In the Create user group interface:\n Name the group and assign the custom policy created earlier. Click Create user group.\n  4. Create a User and Assign Them to the Group 4.1. Access Users from the left navigation menu.\n4.2. Click Create user.\n4.3. Step 1 - Specify user details:\n Enter a username. Select Provide user access to the AWS Management Console. Choose I want to create an IAM user. Set a custom password. Click Next.\n  4.4. Step 2 - Set permissions:\n Select Add user to group. Choose the group created earlier (e.g., restricted_ec2_region_group). Click Next.\n  4.5. Step 3 - Review and Create:\n Review the user and permissions. Click Create user.\n  4.6. Step 4 - Retrieve password:\n Save or download the .csv file to manage user credentials.\n  4.7. Log in as the IAM User:\n Copy the sign-in URL. Log in using the username and password. Update the password when prompted.\n  Testing:   Check the EC2 service in us-east-1: The policy should restrict access in this region.\n  Check the EC2 service in ap-southeast-1: Access should be allowed.\n  Done! "
 },
 {
-	"uri": "/3-create-vpc-instance/3.3-createdbsg/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/3-create-vpc-instance/3.3-createdbsg/",
 	"title": "Create Database Subnet Group",
 	"tags": [],
 	"description": "",
 	"content": "Create a DB Subnet Group on AWS Follow these steps to create a DB Subnet Group on AWS:\n  Go to the AWS Management Console.\n  Search for and select the Amazon RDS service.\n  In the navigation menu, select Subnet groups.\n  Click Create DB Subnet Group.\n  In the Create DB Subnet Group page:\n Enter a Name for your subnet group. Provide a Description for the subnet group. Select the VPC (use the one you created or the default VPC).    In the Add subnets section:\n Select the Availability Zones (AZs) where your subnets are located. Choose the corresponding Subnets for each AZ.     Note:\nIf you have enabled Local Zones, you can select an Availability Zone Group on the Create DB Subnet Group page. In this case, pick the AZ Group, the individual AZs, and the corresponding subnets.\nOnce complete, your new DB Subnet Group will appear in the list of DB Subnet Groups on the RDS console. You can view its details, including a list of subnets associated with the group, in the details section at the bottom of the page.\n Click Create to finalize the creation of the DB Subnet Group.  "
 },
 {
-	"uri": "/3-create-vpc-instance/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/3-create-vpc-instance/",
 	"title": "Prepare VPC Instance",
 	"tags": [],
 	"description": "",
 	"content": "In this section, we will create the VPC Instance, as well as set up the VPC Security Group, RDS Security Group, and Database Subnet Group.\n"
 },
 {
-	"uri": "/4-create-ec2-instance/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/4-create-ec2-instance/",
 	"title": "Create EC2 Instance",
 	"tags": [],
 	"description": "",
 	"content": "Create an EC2 Instance on AWS You can create a Linux instance using the AWS Management Console by following the instructions below. This guide is designed to help you quickly create your first instance, so it doesn\u0026rsquo;t cover all possible options. For detailed information on advanced options, check the guide on creating an instance using the Launch Instance wizard. For other ways to create your instance, refer to the guide on creating an instance.\n1. Access AWS Console  Open your browser and go to the Amazon EC2 console at EC2 Console.  2. Select Launch Instance  In the EC2 dashboard, click Launch Instance in the Launch instance box.  3. Name Your Instance  Under Name and tags, enter a descriptive name for your instance.  4. Choose an Image (Amazon Machine Image - AMI)  Under Application and OS Images (Amazon Machine Image), follow these steps:  Select Quick Start, then choose Amazon Linux. This will be the operating system (OS) for your instance. From the Amazon Machine Image (AMI), select a HVM version of Amazon Linux 2023. These AMIs are labeled Free tier eligible. An AMI is a basic configuration used as a template for your instance.     5. Choose Instance Type  Under Instance type, from the list, select the hardware configuration for your instance. Choose t2.micro, which is selected by default. The t2.micro instance type is eligible for AWS Free Tier. If t2.micro is unavailable in your region, you can use t3.micro, which is also eligible for AWS Free Tier. For more information, see AWS Free Tier.  6. Select Key Pair  Under Key pair (login), choose a key pair name. Select the key pair you created during setup.  Warning: Do not select Proceed without a key pair (not recommended). If you create an instance without a key pair, you will not be able to connect to it.\n\r7. Configure Security Group  Next to Network settings, click Edit. For the Security group name, you\u0026rsquo;ll see that a security group has already been created and selected for you. Select the security group you created during setup by following these steps:  Choose Select existing security group. From Common security groups, select your security group from the list of available security groups. Review and launch the instance. Leave the default settings for other instance options. Review your instance configuration summary in the Summary panel, and when you\u0026rsquo;re ready, click Launch instance.    8. Confirm and Monitor  A confirmation page will appear indicating that your instance is being launched. Click View all instances to close the confirmation page and return to the console interface. On the Instances screen, you can see the status of your launch process. It takes a short time for the instance to start. When it is launched, its status will change from pending to running, and it will receive a public DNS name. If the Public IPv4 DNS column is hidden, click the settings icon in the upper-right corner, enable Public IPv4 DNS, and click Confirm. It may take a few minutes for the instance to be ready for connection. Check if the instance passes the status check; you can see this information in the Status check column.  Test Connection to EC2 Instance 1. Connect to EC2 Instance via SSH  Select the EC2 instance you just created, and click Connect. In the Connect to instance interface, select the SSH Client tab.   If you\u0026rsquo;re using Windows, install WSL2 to run Linux commands (alternatively, you can use the Putty application). If you\u0026rsquo;re using macOS, copy the example SSH command and paste it into the Terminal. The command will have the following syntax:  $ chmod 400 \u0026quot;key-pair.pem\u0026quot;\r$ ssh -i path/to/key-pair.pem ec2-user@domain\r2. Successful Connection "
 },
 {
-	"uri": "/5-create-rds-instance/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/5-create-rds-instance/",
 	"title": "Create AWS Relational Database Service",
 	"tags": [],
 	"description": "",
 	"content": "Create a DB Instance on AWS Note: The procedure below assumes that Standard create is enabled and Easy create is not. This procedure uses MySQL as an example.\n\rSteps to create a DB Instance:   Log in to the AWS Management Console and open the Amazon RDS console at RDS Console.\n  In the top-right corner of the Amazon RDS console, select the AWS region where you want to create the DB Instance.\n  In the navigation pane, select Databases.\n  Click Create database, then choose Standard create.\n  For Engine type, select MariaDB, Microsoft SQL Server, MySQL, Oracle, or PostgreSQL. In this example, we use MySQL.\n  For Edition, select MySQL Community.\n  For Version, select the engine version (e.g., MySQL 8.0.39).   Under Templates, choose the Free tiers template.\n  To set the master password, follow these steps:\n   In the Settings section, open Credential Settings. If Auto generate a password is checked, uncheck it if you want to specify a password. (Optional) Change the Master username value. Enter the same password in Master password and Confirm password. (Optional) Set up connection with a compute resource for the DB Instance.  You can configure the connection between an Amazon EC2 instance and the new DB Instance during the creation process.   Under Connectivity, choose Connect to EC2 Compute Resource. Select the EC2 Instance you created earlier.  Configure DB Subnet Group:   In the DB Subnet Group section, choose Choose Existing and select golang-db-subnet-group.  Configure VPC Security Group:   Select Choose Existing, and from the dropdown, select private-sg, the security group you created earlier.   Click Create database.\n  Verify the RDS Instance:\n   In the RDS instance details page, you can find information like Endpoint, Port, and Username. The Endpoint is the URL or IP address you use to connect to the RDS database.  Verify MySQL connection from EC2:  $ sudo yum install mysql\r$ mysql -h \u0026lt;endpoint\u0026gt; -P 3306 -u admin -p \u0026lt;password\u0026gt;\r$ mysql -h mysql-golang-db.c1a20mqwgeb9.ap-southeast-1.rds.amazonaws.com -P 3306 -u admin -pAdmin123\rCreate a Database: The admin user cannot directly access the mysql database. It is recommended to create a new database for access. This issue is due to RDS privileges.\n\r Since RDS is a managed service, to maintain system integrity and stability, superuser privileges are not granted to even the master user of the DB instance. Therefore, errors like this are expected, as the RDS MySQL master user by default does not have ADMIN, ROLE_ADMIN, or SUPER privileges.\n   CREATE DATABASE blog_db; # Query OK, 1 row affected (0.01 sec) Access the Database:   "
 },
 {
-	"uri": "/6-create-s3-instance/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/6-create-s3-instance/",
 	"title": "Create S3 Instance",
 	"tags": [],
 	"description": "",
 	"content": "To store images for our application, we will use AWS S3 storage service.\nSet up S3 Storage Service   Visit AWS S3\n  Select Create bucket:\n Choose AWS Region: Asia Pacific (Singapore) ap-southeast-1 Enter a unique name for your S3 bucket. Since we want the images to be publicly accessible for the client, uncheck Block all public access, and check Confirm.  Click Create bucket.    Access the S3 Bucket:\n Once the bucket is created, go to your S3 bucket and check its details.     Upload an object to the S3 Bucket:\n Go to your S3 bucket, select Upload. Drag and drop a file into the Upload box and click Upload.     Create an IAM Role for EC2: Best practices: Instead of connecting to S3 using Access Key, Secret Key, for enhanced security, use an IAM Role to authorize an EC2 Instance to connect to the S3 Bucket.\n\r   First, create a role for the EC2 Service to access the S3 bucket: Go to Roles, click Create Role. In the Select trusted entity interface, choose AWS Service as the entity type. Select EC2 as the use case, and click Next.  Then, choose AmazonS3FullAccess, and click Next (For more security, you can create a Custom Policy).  After that, set the Role name, Description, and review the Role Details.  Attach the Role to EC2:   Go to EC2 Instances. Select the EC2 Instance you created. Choose Actions \u0026gt; Security \u0026gt; Modify IAM Role.  Select the IAM Role you just created and click Update IAM Role.   Test the connection between EC2 and S3:   Access the EC2 instance and run $ aws s3 ls s3://my-bucket-name.  "
 },
 {
-	"uri": "/7-deploy-application-to-ec2/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/7-deploy-application-to-ec2/",
 	"title": "Deploy Application to EC2 Instance",
 	"tags": [],
 	"description": "",
 	"content": "We have completed setting up the infrastructure. Now, we just need to deploy the Go application to the EC2 instance to complete the lab! xd\n1. Install Git version control and Golang  Install Git:  $ sudo yum install git -y\r$ git --version\r Install Golang:  $ wget https://go.dev/dl/go1.23.4.linux-amd64.tar.gz\r$ sudo tar -C /usr/local -xzf go1.23.4.linux-amd64.tar.gz\r$ export PATH=$PATH:/usr/local/go/bin\r$ go version\r2. Clone the repository  Clone the Blog application repository, or you can use your personal repository.  $ git clone https://github.com/minhnghia2k3/workshop-01.git\r3. Export environment variables Add the required environment variables for the application:\n$ vi ~/.bashrc\rexport DATABASE_URL=\u0026quot;admin:Admin123@tcp(\u0026lt;YOUR_DB_ENDPOINT\u0026gt;:3306)/blog_db\u0026quot;\rexport AWS_REGION=\u0026quot;ap-southeast-1\u0026quot;\rexport S3_BUCKET_NAME=\u0026quot;minhnghia2k3-blog-s3-bucket\u0026quot;\r$ source ~/.bashrc\r4. Run the application $ ls\r$ cd workshop-01\r$ go build -o ./bin/main .\r$ ./bin/main\r If successful, the server will open on port :3000.  5. Test Deployment and Functionality  Access the EC2 domain, e.g., http://ec2-13-250-114-245.ap-southeast-1.compute.amazonaws.com:3000/  Test blog creation:  Test blog editing:  Test blog deletion.   6. Check Storage in MySQL and S3 Bucket From the EC2 SSH terminal:\n1. Check MySQL:\n$ mysql -h mysql-golang-db.c1a20mqwgeb9.ap-southeast-1.rds.amazonaws.com -P 3306 -u admin -pAdmin123\r$ USE blog_db;\r$ SELECT * FROM articles;\r   id title content     1 Introduction to Golang: A Beginner\u0026rsquo;s Guide Golang, or Go, is an open-source programming language designed by Google. Known for its simplicity, concurrency support, and performance, Go is an excellent choice for building scalable web applications, cloud-native solutions, and microservices.fmt.Println(\u0026quot;Hello Go!\u0026quot;)    2. Check the Bucket:\n In the uploads/ folder, you can see that the application successfully stored the file to the S3 bucket.   "
 },
 {
-	"uri": "/8-clean-up/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/8-clean-up/",
 	"title": "Clean Up Resources",
 	"tags": [],
 	"description": "",
 	"content": "1. Delete S3 Resources  Go to Amazon S3 Select the bucket instance, click empty to delete all objects in the bucket. Then perform Delete.   2. Delete RDS Resources  Go to Amazon RDS, section Database Click the Action dropdown and select Delete.   3. Delete EC2 Resources  Go to EC2 Instances Select the instance, click the Instance state dropdown, and choose Terminate.   4. Delete VPC Resources  Go to Your VPCs Select the Instance, then click Actions and choose Delete VPC.   5. Clean up IAM Resources  Access Root user. Go to IAM Service Under Policies, select the Policy and choose Delete. Under Groups, select the group and click Delete.  Under Users, select the user and click Delete.   "
 },
 {
-	"uri": "/categories/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "/tags/",
+	"uri": "https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",
