@@ -13,6 +13,8 @@ pre : "<b>3.3 </b>"
 
 2. Tìm và chọn dịch vụ **Amazon RDS**.
 
+   ![rds-interface.png](/images/3-create-vpc-instance/3.3-create-db-sg/rds-interface.png)
+
 3. Trong menu điều hướng, chọn [Subnet groups](https://ap-southeast-1.console.aws.amazon.com/rds/home?region=ap-southeast-1#db-subnet-groups-list:).
 
 4. Chọn Create DB Subnet Group.

@@ -1,9 +1,9 @@
 ---
 title : "Khởi tạo S3 Instance"
 date :  "`r Sys.Date()`"
-weight : 5
+weight : 6
 chapter : false
-pre : "<b>5. </b>"
+pre : "<b>6. </b>"
 ---
 
 Tiếp theo, để lưu trữ hình ảnh cho ứng dụng chúng ta sẽ sử dụng dịch vụ lưu trữ AWS S3

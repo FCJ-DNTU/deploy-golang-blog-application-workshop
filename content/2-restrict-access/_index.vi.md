@@ -16,6 +16,9 @@ Thay vào đó hãy tạo IAM User vừa đủ quyền hạn truy cập tài ngu
 chúng ta sẽ tạo policy để hạn chế user chỉ có thể tương tác được với **EC2 Instance** trên region **ap-southeast-1**
 
 #### 1. Truy cập AWS IAM Management Console
+
+![iam-management.png](/images/2-restrict-access/iam-management.png)
+
 #### 2. Tạo Custom Policies
 2.1. Tại thanh điều hướng bên trái, chọn [Policies](https://us-east-1.console.aws.amazon.com/iam/home?region=ap-southeast-1#/policies)
 
@@ -46,8 +49,8 @@ chúng ta sẽ tạo policy để hạn chế user chỉ có thể tương tác 
 2.4. **Bước 2 - Review and create**
 - Đặt tên policy tại **Policy name**, **Description**.
 - Sau đó chọn **create policy**
-![review-and-create](/images/2-restrict-access/restricted-policy-1.png)
 
+    ![review-and-create](/images/2-restrict-access/restricted-policy-1.png)
 
 #### 3. Tạo một User Group và Policy
 {{% notice note %}}

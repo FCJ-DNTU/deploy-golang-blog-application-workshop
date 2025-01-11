@@ -23,6 +23,8 @@ MySQL làm ví dụ.
 
 4. Chọn **Create database**, sau đó chọn **Standard create**.
 
+![rds-interface.png](/images/5-create-rds-instance/rds-interface.png)
+
 5. Đối với **Engine type**, chọn MariaDB, Microsoft SQL Server, MySQL, Oracle, hoặc PostgreSQL. Trong ví dụ này, chúng
    ta sử dụng **MySQL**.
 
@@ -70,10 +72,10 @@ MySQL làm ví dụ.
 
 15. Kiểm tra kết nối từ EC2 tới MySQL
 
-```
+```shell
 $ sudo yum install mysql
 $ mysql -h <endpoint> -P 3306 -u admin -p <password>
-$ mysql -h mysql-golang-db.c1a20mqwgeb9.ap-southeast-1.rds.amazonaws.com -P 3306 -u admin -pAdmin123
+# $ mysql -h mysql-golang-db.c1a20mqwgeb9.ap-southeast-1.rds.amazonaws.com -P 3306 -u admin -pAdmin123
 ```
 
 ![ec2-to-mysql.png](/images/5-create-rds-instance/ec2-to-mysql.png)

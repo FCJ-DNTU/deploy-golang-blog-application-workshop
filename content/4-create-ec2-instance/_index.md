@@ -61,6 +61,10 @@ Warning: Do not select **Proceed without a key pair** (not recommended). If you 
 
 ![review.png](/images/4-create-ec2-instance/review-png.png)
 
+- Review your Public IPv4, Please choose **EC2 Instance** > **Networking** tab > **Public IPv4 Address**
+
+  ![check-ipv4.png](/images/4-create-ec2-instance/check-ipv4.png)
+
 #### Test Connection to EC2 Instance
 
 #### 1. Connect to EC2 Instance via SSH

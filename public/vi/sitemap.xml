@@ -2,172 +2,172 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/1-introduce/</loc>
+    <loc>/vi/1-introduce/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/1-introduce/"
+                href="/1-introduce/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/1-introduce/"
+                href="/vi/1-introduce/"
                 />
   </url><url>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/3-create-vpc-instance/3.1-create-vpc/</loc>
+    <loc>/vi/3-create-vpc-instance/3.1-create-vpc/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/3-create-vpc-instance/3.1-create-vpc/"
+                href="/3-create-vpc-instance/3.1-create-vpc/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/3-create-vpc-instance/3.1-create-vpc/"
+                href="/vi/3-create-vpc-instance/3.1-create-vpc/"
                 />
   </url><url>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/</loc>
+    <loc>/vi/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/"
+                href="/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/"
+                href="/vi/"
                 />
   </url><url>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/2-restrict-access/</loc>
+    <loc>/vi/2-restrict-access/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/2-restrict-access/"
+                href="/2-restrict-access/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/2-restrict-access/"
+                href="/vi/2-restrict-access/"
                 />
   </url><url>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/3-create-vpc-instance/3.2-createvpcsg/</loc>
+    <loc>/vi/3-create-vpc-instance/3.2-create-vpc-sg/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/3-create-vpc-instance/3.2-createvpcsg/"
+                href="/3-create-vpc-instance/3.2-create-vpc-sg/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/3-create-vpc-instance/3.2-createvpcsg/"
+                href="/vi/3-create-vpc-instance/3.2-create-vpc-sg/"
                 />
   </url><url>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/3-create-vpc-instance/</loc>
+    <loc>/vi/3-create-vpc-instance/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/3-create-vpc-instance/"
+                href="/3-create-vpc-instance/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/3-create-vpc-instance/"
+                href="/vi/3-create-vpc-instance/"
                 />
   </url><url>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/3-create-vpc-instance/3.3-createdbsg/</loc>
+    <loc>/vi/3-create-vpc-instance/3.3-create-db-sg/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/3-create-vpc-instance/3.3-createdbsg/"
+                href="/3-create-vpc-instance/3.3-create-db-sg/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/3-create-vpc-instance/3.3-createdbsg/"
+                href="/vi/3-create-vpc-instance/3.3-create-db-sg/"
                 />
   </url><url>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/4-create-ec2-instance/</loc>
+    <loc>/vi/4-create-ec2-instance/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/4-create-ec2-instance/"
+                href="/4-create-ec2-instance/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/4-create-ec2-instance/"
+                href="/vi/4-create-ec2-instance/"
                 />
   </url><url>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/5-create-rds-instance/</loc>
+    <loc>/vi/5-create-rds-instance/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/5-create-rds-instance/"
+                href="/5-create-rds-instance/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/5-create-rds-instance/"
+                href="/vi/5-create-rds-instance/"
                 />
   </url><url>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/6-create-s3-instance/</loc>
+    <loc>/vi/6-create-s3-instance/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/6-create-s3-instance/"
+                href="/6-create-s3-instance/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/6-create-s3-instance/"
+                href="/vi/6-create-s3-instance/"
                 />
   </url><url>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/7-deploy-application-to-ec2/</loc>
+    <loc>/vi/7-deploy-application-to-ec2/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/7-deploy-application-to-ec2/"
+                href="/7-deploy-application-to-ec2/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/7-deploy-application-to-ec2/"
+                href="/vi/7-deploy-application-to-ec2/"
                 />
   </url><url>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/8-clean-up/</loc>
+    <loc>/vi/8-clean-up/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/8-clean-up/"
+                href="/8-clean-up/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/8-clean-up/"
+                href="/vi/8-clean-up/"
                 />
   </url><url>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/categories/</loc>
+    <loc>/vi/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/categories/"
+                href="/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/categories/"
+                href="/vi/categories/"
                 />
   </url><url>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/tags/</loc>
+    <loc>/vi/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/tags/"
+                href="/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/tags/"
+                href="/vi/tags/"
                 />
   </url>
 </urlset>

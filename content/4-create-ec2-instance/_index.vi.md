@@ -63,6 +63,11 @@ Cảnh báo: Đừng chọn Proceed without a key pair (Không được khuyến
 
 ![review.png](/images/4-create-ec2-instance/review-png.png)
 
+- Kiểm tra Public IPv4 click chọn vào **EC2 Instance** > **Networking** tab > **Public IPv4 Address**
+
+  ![check-ipv4.png](/images/4-create-ec2-instance/check-ipv4.png)
+
+
 #### Kiểm tra kết nối tới EC2 Instance
 
 #### 1. Kết nối EC2 Instance bằng SSH

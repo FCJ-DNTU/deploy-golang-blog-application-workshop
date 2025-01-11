@@ -22,6 +22,8 @@ Note: The procedure below assumes that **Standard create** is enabled and **Easy
 
 4. Click **Create database**, then choose **Standard create**.
 
+    ![rds-interface.png](/images/5-create-rds-instance/rds-interface.png)
+
 5. For **Engine type**, select MariaDB, Microsoft SQL Server, MySQL, Oracle, or PostgreSQL. In this example, we use **MySQL**.
 
 6. For **Edition**, select **MySQL Community**.
@@ -67,10 +69,10 @@ Note: The procedure below assumes that **Standard create** is enabled and **Easy
 
 15. Verify MySQL connection from EC2:
 
-```
+```shell
 $ sudo yum install mysql
 $ mysql -h <endpoint> -P 3306 -u admin -p <password>
-$ mysql -h mysql-golang-db.c1a20mqwgeb9.ap-southeast-1.rds.amazonaws.com -P 3306 -u admin -pAdmin123
+# $ mysql -h mysql-golang-db.c1a20mqwgeb9.ap-southeast-1.rds.amazonaws.com -P 3306 -u admin -pAdmin123
 ```
 
 ![ec2-to-mysql.png](/images/5-create-rds-instance/ec2-to-mysql.png)

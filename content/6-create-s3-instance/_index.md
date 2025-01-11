@@ -1,9 +1,9 @@
 ---
 title: "Create S3 Instance"
 date: "`r Sys.Date()`"
-weight: 5
+weight: 6
 chapter: false
-pre: "<b>5. </b>"
+pre: "<b>6. </b>"
 ---
 
 To store images for our application, we will use AWS S3 storage service.

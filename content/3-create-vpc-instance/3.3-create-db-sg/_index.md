@@ -13,6 +13,9 @@ Follow these steps to create a **DB Subnet Group** on AWS:
 
 2. Search for and select the **Amazon RDS** service.
 
+   ![rds-interface.png](/images/3-create-vpc-instance/3.3-create-db-sg/rds-interface.png)
+
+
 3. In the navigation menu, select [Subnet groups](https://ap-southeast-1.console.aws.amazon.com/rds/home?region=ap-southeast-1#db-subnet-groups-list:).
 
 4. Click **Create DB Subnet Group**.

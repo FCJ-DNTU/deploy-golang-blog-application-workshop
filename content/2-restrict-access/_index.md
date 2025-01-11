@@ -14,6 +14,8 @@ In this section, we will create a policy to restrict a user to only interact wit
 
 #### 1. Access the AWS IAM Management Console
 
+![iam-management.png](/images/2-restrict-access/iam-management.png)
+
 #### 2. Create Custom Policies
 2.1. On the left navigation menu, select [Policies](https://us-east-1.console.aws.amazon.com/iam/home?region=ap-southeast-1#/policies).
 
@@ -46,6 +48,7 @@ This JSON allows interactions with EC2 resources but only in the **ap-southeast-
 2.4. **Step 2 - Review and Create**:
 - Provide a name and description for the policy.
 - Click **Create policy**.  
+
   ![review-and-create](/images/2-restrict-access/restricted-policy-1.png)
 
 #### 3. Create a User Group and Assign the Policy

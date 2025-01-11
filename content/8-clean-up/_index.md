@@ -33,7 +33,15 @@ pre: "<b>8. </b>"
 - Access **Root user**.
 - Go to [IAM Service](https://us-east-1.console.aws.amazon.com/iam/home?region=ap-southeast-1#/home)
 - Under **Policies**, select the **Policy** and choose **Delete**.
+
+![delete-policy.png](/images/8-clean-up/delete-policy.png)
+
 - Under **Groups**, select the group and click **Delete**.
+
 ![delete-groups.png](/images/8-clean-up/delete-groups.png)
+
 - Under **Users**, select the user and click **Delete**.
+
 ![delete-users.png](/images/8-clean-up/delete-users.png)
+
+# COOKED ⭐

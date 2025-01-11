@@ -2,12 +2,12 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <sitemap>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/en/sitemap.xml</loc>
+    <loc>en/sitemap.xml</loc>
     
   </sitemap>
   
   <sitemap>
-    <loc>https://minhnghia2k3.github.io/deploy-golang-blog-application-workshop/vi/sitemap.xml</loc>
+    <loc>vi/sitemap.xml</loc>
     
   </sitemap>
   

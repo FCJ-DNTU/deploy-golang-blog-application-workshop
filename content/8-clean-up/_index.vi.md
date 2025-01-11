@@ -33,7 +33,15 @@ pre: "<b>8. </b>"
 - Truy cập vào **Root user**
 - Truy cập [IAM Service](https://us-east-1.console.aws.amazon.com/iam/home?region=ap-southeast-1#/home)
 - Chọn **Policies**, thực hiện chọn **Policy** và **Delete**
+
+![delete-policy.png](/images/8-clean-up/delete-policy.png)
+
 - Chọn **Groups**, thực hiện **Delete**
-![delete-groups.png](/images/8-clean-up/delete-groups.png)
+
+    ![delete-groups.png](/images/8-clean-up/delete-groups.png)
+
 - Chọn **Users**, thực hiện **Delete**
+
 ![delete-users.png](/images/8-clean-up/delete-users.png)
+
+# COOKED ⭐
