@@ -6,6 +6,10 @@ chapter: false
 pre: "<b>3.2. </b>"
 ---
 
+#### VPC Security Group
+
+A subnet group is a collection of subnets running on Amazon Virtual Private Cloud (VPC) environment, allows you configure **inbound and outbound** rules
+
 #### Create VPC Security Groups
 In this step, we will create two **Security Groups (SGs)**: one for public subnets (used by EC2 instances) and one for private subnets (used by RDS instances).
 

@@ -6,9 +6,28 @@ chapter: false
 pre: "<b>4. </b>"
 ---
 
+#### Amazon EC2
+
+**Amazon Elastic Compute Cloud (Amazon EC2)** provides on-demand, scalable computing capacity in the Amazon Web Services (AWS) Cloud.
+
+![ec2](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/instance-types.png)
+
+#### Main Use Case of EC2 in the Workshop  
+
+In this workshop, **Amazon EC2** is used to deploy a simple Golang application. To optimize costs and resources, we are using the **t2.micro** instance type. This instance type is ideal for small-scale applications or development environments, providing basic resources at a low cost.  
+
+### Why choose **t2.micro**:
+- **Low Cost:** This instance type falls under the Free Tier (free within AWS Free Tier limits), making it suitable for learning or experimentation.  
+- **Basic Resources:** Offers 1 vCPU and 1GB of RAM, sufficient to run a simple Golang application or test basic AWS services.  
+- **Burstable Performance:** Provides the ability to boost performance when needed, useful for applications with variable workloads.  
+
+---
+
 #### Create an EC2 Instance on AWS
+
 You can create a Linux instance using the AWS Management Console by following the instructions below.
 This guide is designed to help you quickly create your first instance, so it doesn't cover all possible options.
+
 For detailed information on advanced options, check the guide on creating an instance using the Launch Instance wizard. For other ways to create your instance, refer to the guide on creating an instance.
 
 #### 1. Access AWS Console

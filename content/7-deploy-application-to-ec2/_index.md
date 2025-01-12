@@ -8,6 +8,33 @@ pre: "<b>7. </b>"
 
 We have completed setting up the infrastructure. Now, we just need to deploy the Go application to the EC2 instance to complete the lab! xd
 
+#### Project Structure
+
+```
+workshop-01
+│───assets              # Contains images used in the project
+│
+└───static              # Contains static files
+│    └───css            # Stores CSS files for styling
+│         │   styles.css  
+│
+└───templates            # Stores HTML templates
+│   │   article.html     # Template for displaying an article
+│   │   base.html        # Base template used across other templates
+│   │   edit.html        # Template for editing an article
+│   │   index.html       # Template for the homepage
+│   │   new.html         # Template for creating a new article
+│
+│   .env.example         # Example environment variables file
+│   .gitignore           # Git ignore rules for the project
+│   db.go                # Contains logic for database interactions
+│   go.mod               # Specifies Go module version and dependencies
+│   go.sum               # Contains checksums for dependencies
+│   main.go              # Main application logic, includes rendering and CRUD operations for articles
+│   README.md            # Documentation for the project
+```
+
+
 #### 1. Install Git version control and Golang
 
 - Install Git:

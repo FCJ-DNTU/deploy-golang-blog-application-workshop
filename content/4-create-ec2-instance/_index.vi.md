@@ -6,9 +6,30 @@ chapter : false
 pre : "<b>4. </b>"
 ---
 
+#### Amazon EC2
+
+**Amazon Elastic Compute Cloud (Amazon EC2)** cung cấp khả năng tính toán có thể mở rộng và on-demand trong môi trường Cloud của Amazon Web Services (AWS).
+
+![ec2](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/instance-types.png)
+
+Dưới đây là nội dung mở rộng cho phần "Trường hợp sử dụng chính của EC2 trong Workshop":
+
+#### Trường hợp sử dụng chính của EC2 trong Workshop  
+
+Trong bài Workshop này, **Amazon EC2** được sử dụng để triển khai một ứng dụng Golang đơn giản. Với mục tiêu tiết kiệm chi phí và tối ưu tài nguyên, chúng ta sử dụng loại instance **t2.micro**. Đây là loại instance phù hợp cho các ứng dụng nhỏ hoặc môi trường phát triển, nhờ cung cấp mức tài nguyên cơ bản với chi phí thấp.  
+
+#### Lý do chọn **t2.micro**:
+- **Chi phí thấp:** Là một loại instance thuộc Free Tier (miễn phí trong giới hạn AWS Free Tier), phù hợp cho việc học tập hoặc thử nghiệm.  
+- **Tài nguyên cơ bản:** Bao gồm 1 vCPU và 1GB RAM, đủ để chạy ứng dụng Golang đơn giản hoặc thử nghiệm các dịch vụ AWS cơ bản.  
+- **Burstable Performance:** Có khả năng tăng cường hiệu năng khi cần, rất hữu ích cho các ứng dụng có tải không đều.  
+
+---
+
 #### Tạo một EC2 Instance trên AWS
+
 Bạn có thể tạo một instance Linux bằng cách sử dụng AWS Management Console theo hướng dẫn sau đây.
 Hướng dẫn này được thiết kế để giúp bạn tạo instance đầu tiên một cách nhanh chóng, nên nó không bao gồm tất cả các tùy chọn có thể có. 
+
 Để biết thông tin về các tùy chọn nâng cao, hãy xem Hướng dẫn tạo instance bằng cách sử dụng hướng dẫn mới về Launch Instance. Để biết thông tin về cách khác để tạo instance của bạn, hãy xem Hướng dẫn tạo instance của bạn.
 
 #### 1. Truy cập AWS Console

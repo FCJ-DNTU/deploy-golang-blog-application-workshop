@@ -6,6 +6,10 @@ chapter: false
 pre: "<b>5. </b>"
 ---
 
+#### AWS Relational Database Service
+
+**Amazon Relational Database Service (Amazon RDS)** là một dịch vụ web giúp dễ dàng thiết lập, vận hành và mở rộng cơ sở dữ liệu quan hệ trong môi trường đám mây AWS.
+
 #### Tạo một DB Instance trên AWS
 
 {{% notice info %}}

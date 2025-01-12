@@ -8,6 +8,10 @@ pre: "<b>6. </b>"
 
 To store images for our application, we will use AWS S3 storage service.
 
+#### Simple Storage Service (Amazon S3)
+
+**Amazon Simple Storage Service (Amazon S3)** is an object storage service that offers industry-leading scalability, data availability, security, and performance. 
+
 #### Set up S3 Storage Service
 
 1. Visit [AWS S3](https://ap-southeast-1.console.aws.amazon.com/s3/home?region=ap-southeast-1#)

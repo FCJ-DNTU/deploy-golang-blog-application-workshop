@@ -8,6 +8,9 @@ pre : "<b>6. </b>"
 
 Tiếp theo, để lưu trữ hình ảnh cho ứng dụng chúng ta sẽ sử dụng dịch vụ lưu trữ AWS S3
 
+#### Simple Storage Service (Amazon S3)
+
+**Amazon Simple Storage Service (Amazon S3)** là một dịch vụ lưu trữ đối tượng cung cấp khả năng mở rộng, tính sẵn sàng của dữ liệu, bảo mật và hiệu suất hàng đầu.
 
 #### Khởi tạo dịch vụ lưu trữ S3
 1. Truy cập [AWS S3](https://ap-southeast-1.console.aws.amazon.com/s3/home?region=ap-southeast-1#)

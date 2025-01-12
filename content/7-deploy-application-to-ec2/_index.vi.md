@@ -9,6 +9,34 @@ pre: "<b>7. </b>"
 Chúng ta đã hoàn thành xây dựng Infrastructure, tiếp theo chỉ cần triển khai ứng dụng Go lên EC2 Instance là hoàn thành
 bài lab!!! xd
 
+
+#### Cấu trúc dự án
+
+```
+workshop-01
+│───assets              # Chứa hình ảnh sử dụng trong dự án
+│
+└───static              # Chứa các file tĩnh
+│    └───css            # Lưu trữ các file CSS dùng để thiết kế
+│         │   styles.css  
+│
+└───templates            # Lưu trữ các template HTML
+│   │   article.html     # Template hiển thị bài viết
+│   │   base.html        # Template cơ bản, được dùng chung cho các template khác
+│   │   edit.html        # Template chỉnh sửa bài viết
+│   │   index.html       # Template trang chủ
+│   │   new.html         # Template tạo bài viết mới
+│
+│   .env.example         # File mẫu chứa biến môi trường
+│   .gitignore           # Quy định các file và thư mục sẽ bị bỏ qua khi sử dụng Git
+│   db.go                # Chứa logic tương tác với cơ sở dữ liệu
+│   go.mod               # Định nghĩa version của Go module và các thư viện phụ thuộc
+│   go.sum               # Chứa checksums của các thư viện phụ thuộc
+│   main.go              # Logic chính của ứng dụng, bao gồm render và thực hiện các thao tác CRUD cho bài viết
+│   README.md            # Tài liệu mô tả về dự án
+
+```
+
 #### 1. Cài đặt Git version control và Golang
 
 - Cài đặt git

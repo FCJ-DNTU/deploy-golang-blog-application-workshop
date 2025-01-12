@@ -6,6 +6,11 @@ chapter : false
 pre : "<b>3.2. </b>"
 ---
 
+
+#### Khái niệm về VPC Security Group
+
+Security Group là một tập hợp các subnet chạy trong môi trường Amazon Virtual Private Cloud (VPC), cho phép bạn chỉ định các quy tắc kiểm soát lưu lượng đến và đi.
+
 #### Khởi tạo VPC Security Group
 Tiếp theo, chúng ta sẽ khởi tạo 2 SGs đại diện cho public subnets (EC2 instance) và private subnets (RDS instance)
 
